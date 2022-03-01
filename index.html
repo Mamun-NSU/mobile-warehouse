@@ -16,6 +16,7 @@
 <body>
     <div class="container pt-5">
         <h2 class="text-success text-center">Search your favourite phone</h2>
+        <!-- search filed  -->
         <div class="input-group mb-3">
             <input id="search-field" type="text" class="form-control" placeholder="Search for phone"
                 aria-label="Search for phone" aria-describedby="button-addon2">
@@ -23,15 +24,23 @@
                 id="search-btn">Search</button>
         </div>
 
+        <!-- show error message when don't find data by search -->
+        <div id="err-msg" class="pt-5 text-danger text-center">
+            <h1>No phone found...!</h1>
+        </div>
+        <!-- phone details div -->
         <div id="phone-details" class=" w-50 mx-auto">
 
         </div>
 
+        <!-- search result div -->
         <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
 
         </div>
+
     </div>
 
+    <!-- javaScript file -->
     <script src="./javascript/app.js"></script>
 </body>
 

@@ -1,0 +1,4 @@
+/* show error message when don't find data by search, So, fistly this div will be hidden by defult */
+#err-msg {
+  display: none;
+}

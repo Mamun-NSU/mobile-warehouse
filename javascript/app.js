@@ -1,8 +1,15 @@
+
+ const clearPhoneDetail =phoneDetail =>{
+    phoneDetail.textContent = '';
+ }
+
+
 // search phone by phone name from input field
 const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     //to clear privious data from search field
+    console.log(searchText);
     searchField.value = '';
 
     // get phones' url using phone name
@@ -17,6 +24,13 @@ const searchPhone = () => {
 const displayPhoneBySearch = (phones) => {
     
     console.log(phones);
+
+    // show error message when don't find data by search
+    if(phones.length == 0){
+        document.getElementById('err-msg').style.display = 'block';
+        // clearPhoneDetail();
+    }
+
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
 
@@ -54,13 +68,15 @@ const displayPhoneDetail = phone => {
     const phoneDetail = document.getElementById('phone-details');
     //to clear privious phone details from window
     phoneDetail.textContent = '';
+    // clearPhoneDetail(phoneDetail);
+
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
     <img src="${phone.image}" class="card-img-top" alt="...">
     <div class="card-body text-center">
         <h5 class="card-title">${phone.name}</h5>
-        <p class="card-text">${phone.releaseDate}</p>
+        <p class="card-text">${phone.releaseDate ? phone.releaseDate: 'No release Date found'}</p>
         <p class="card-text">${phone.mainFeatures.storage}</p>
         <p class="card-text">${phone.mainFeatures.displaySize}</p>
         <p class="card-text">${phone.mainFeatures.chipSet}</p>
