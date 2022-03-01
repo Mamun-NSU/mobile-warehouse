@@ -14,7 +14,19 @@
 </head>
 
 <body>
-    <h2>Hello world</h2>
+    <div class="container pt-5">
+        <h2 class="text-success text-center">Search your favourite phone</h2>
+        <div class="input-group mb-3">
+            <input id="search-field" type="text" class="form-control" placeholder="Search for phone"
+                aria-label="Search for phone" aria-describedby="button-addon2">
+            <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
+                id="search-btn">Search</button>
+        </div>
+
+        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+
+        </div>
+    </div>
 
     <script src="./javascript/app.js"></script>
 </body>
