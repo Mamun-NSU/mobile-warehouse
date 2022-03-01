@@ -2,3 +2,27 @@
 #err-msg {
   display: none;
 }
+
+/* at first this lodding image will be hidden by defult */
+#lodding-img {
+  display: none;
+}
+
+.phone-details {
+  width: 50%;
+}
+/* Media Quaries */
+
+/* For Mobile devices */
+@media only screen and (max-width: 668px) {
+  .phone-details {
+    width: 100%;
+  }
+}
+
+/*  For Tablet devices */
+@media only screen and (min-width: 669px) and (max-width: 992px) {
+  .phone-details {
+    width: 75%;
+  }
+}

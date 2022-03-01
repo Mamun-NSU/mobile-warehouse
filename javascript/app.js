@@ -5,8 +5,16 @@ const toggleDiv = (divId, displayStyle) => {
 // Firstly hide 'moreBtn' to load more data
 toggleDiv("moreBtn", "none");
 
+const clearPhoneDetail = () => {
+  const phoneDetail = document.getElementById("phone-details");
+  //to clear privious phone details from window
+  phoneDetail.textContent = "";
+};
+
 // search phone by phone name from input field
 const searchPhone = () => {
+  // when searchPhone start, then the loading gif show
+  toggleDiv("lodding-img", "block");
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   //to clear privious data from search field
@@ -14,6 +22,8 @@ const searchPhone = () => {
   searchField.value = "";
   // error message hide fistly
   toggleDiv("err-msg", "none");
+  // phone details hide here
+  clearPhoneDetail();
 
   // get phones' url using phone name
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
@@ -33,14 +43,16 @@ const displayPhoneBySearch = (phones) => {
     toggleDiv("err-msg", "block");
     // phone details hide here
     toggleDiv("phone-details", "none");
+    //    hide 'moreBtn' to load more data
+    toggleDiv("moreBtn", "none");
   }
 
   const searchResult = document.getElementById("search-result");
   searchResult.textContent = "";
 
-  /* This function 
-        load more phone data after 20 
-        start here */
+  /***************************************************** 
+    This function load more phone data after 20 start here
+    *******************************************************/
   const loadMoreData = () => {
     const moreBtn = document.getElementById("moreBtn");
     console.log(moreBtn);
@@ -52,7 +64,7 @@ const displayPhoneBySearch = (phones) => {
         div.classList.add("col");
         // we push/inject phone data in div
         div.innerHTML = `
-                <div class="card h-100">
+                <div class="card h-100 text-center">
                     <img src="${phone.image}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${phone.phone_name}</h5>
@@ -65,9 +77,10 @@ const displayPhoneBySearch = (phones) => {
       });
     });
   };
-  /* The function
-        of load more phone data after 20
-            ends here */
+
+  /*******************************************************
+   The function of load more phone data after 20 ends here 
+   *******************************************************/
 
   phones.slice(0, 10).forEach((phone) => {
     // console.log(phone);
@@ -75,7 +88,7 @@ const displayPhoneBySearch = (phones) => {
     div.classList.add("col");
     // we push/inject phone data in div
     div.innerHTML = `
-        <div class="card h-100">
+        <div class="card h-100 text-center">
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
@@ -90,6 +103,8 @@ const displayPhoneBySearch = (phones) => {
     toggleDiv("moreBtn", "block");
     loadMoreData();
   }
+  // when all phones displayed, then the loading gif hide
+  toggleDiv("lodding-img", "none");
 };
 
 // this function load phone details
@@ -104,10 +119,11 @@ const loadPhoneDetail = (phoneID) => {
 
 // this function display phone details
 const displayPhoneDetail = (phone) => {
+  window.scrollTo(0, 0);
   const phoneDetail = document.getElementById("phone-details");
   //to clear privious phone details from window
-  phoneDetail.textContent = "";
-  // clearPhoneDetail(phoneDetail);
+  //   phoneDetail.textContent = "";
+  clearPhoneDetail();
 
   const div = document.createElement("div");
   div.classList.add("card");
@@ -127,4 +143,3 @@ const displayPhoneDetail = (phone) => {
     `;
   phoneDetail.appendChild(div);
 };
-  
