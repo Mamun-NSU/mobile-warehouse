@@ -136,6 +136,12 @@ const displayPhoneDetail = (phone) => {
         <p class="card-text"><b>Chip set:</b> ${phone.mainFeatures.chipSet}</p>
         <p class="card-text"><b>Memory:</b> ${phone.mainFeatures.memory}</p>
         <p class="card-text"><b>Sensors:</b> ${phone.mainFeatures.sensors}</p>
+        <p class="card-text"><b>Bluetooth:</b> ${phone.others.Bluetooth}</p>
+        <p class="card-text"><b>GPS:</b> ${phone.others.GPS}</p>
+        <p class="card-text"><b>WLAN:</b> ${phone.others.WLAN}</p>
+        <p class="card-text"><b>USB:</b> ${phone.others.USB}</p>
+        <p class="card-text"><b>NFC:</b> ${phone.others.NFC}</p>
+        <p class="card-text"><b>Radio:</b> ${phone.others.Radio}</p>
     `;
     phoneDetail.appendChild(div);
 };
