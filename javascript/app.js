@@ -128,20 +128,20 @@ const displayPhoneDetail = (phone) => {
     div.innerHTML = `
     <img src="${phone.image}" class="card-img-top" alt="...">
     <div class="card-body text-center">
-        <h3 class="card-title fw-bold">${phone.name}</h3>
+        <h3 class="card-title fw-bold">${phone.name ? phone.name : "No name found"}</h3>
         <p class="card-text"><b>Release Date:</b> ${phone.releaseDate ? phone.releaseDate : "No release Date found"
         }</p>
-        <p class="card-text"><b>Storage:</b> ${phone.mainFeatures.storage}</p>
-        <p class="card-text"><b>Display size:</b> ${phone.mainFeatures.displaySize}</p>
-        <p class="card-text"><b>Chip set:</b> ${phone.mainFeatures.chipSet}</p>
-        <p class="card-text"><b>Memory:</b> ${phone.mainFeatures.memory}</p>
-        <p class="card-text"><b>Sensors:</b> ${phone.mainFeatures.sensors}</p>
-        <p class="card-text"><b>Bluetooth:</b> ${phone.others.Bluetooth}</p>
-        <p class="card-text"><b>GPS:</b> ${phone.others.GPS}</p>
-        <p class="card-text"><b>WLAN:</b> ${phone.others.WLAN}</p>
-        <p class="card-text"><b>USB:</b> ${phone.others.USB}</p>
-        <p class="card-text"><b>NFC:</b> ${phone.others.NFC}</p>
-        <p class="card-text"><b>Radio:</b> ${phone.others.Radio}</p>
+        <p class="card-text"><b>Storage:</b> ${phone.mainFeatures.storage ? phone.mainFeatures.storage : "No storage found "}</p>
+        <p class="card-text"><b>Display size:</b> ${phone.mainFeatures.displaySize ? phone.mainFeatures.displaySize : "No display size found "}</p>
+        <p class="card-text"><b>Chip set:</b> ${phone.mainFeatures.chipSet ? phone.mainFeatures.chipSet : "No chip set found "}</p>
+        <p class="card-text"><b>Memory:</b> ${phone.mainFeatures.memory ? phone.mainFeatures.memory : "No memory found "}</p>
+        <p class="card-text"><b>Sensors:</b> ${phone.mainFeatures.sensors ? phone.mainFeatures.sensors : "No sensors found "}</p>
+        <p class="card-text"><b>Bluetooth:</b> ${phone.others.Bluetooth ? phone.others.Bluetooth : "No Bluetooth found "}</p>
+        <p class="card-text"><b>GPS:</b> ${phone.others.GPS ? phone.others.GPS : "No GPS found "}</p>
+        <p class="card-text"><b>WLAN:</b> ${phone.others.WLAN ? phone.others.WLAN : "No WLAN found "}</p>
+        <p class="card-text"><b>USB:</b> ${phone.others.USB ? phone.others.USB : "No USB found "}</p>
+        <p class="card-text"><b>NFC:</b> ${phone.others.NFC ? phone.others.NFC : "No NFC found "}</p>
+        <p class="card-text"><b>Radio:</b> ${phone.others.Radio ? phone.others.Radio : "No Radio found "}</p>
     `;
     phoneDetail.appendChild(div);
 };
